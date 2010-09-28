@@ -1,5 +1,8 @@
 ; my misc customizations for emacs
+
+;; Time-stamp: <2010-09-28 16:17:08 星期二 by ryebread>
 ; ==============================================================================
+(require 'mine-misc-util)
 
 (setq user-full-name "ryebread"
       user-mail-address "hhdslb@gmail.com")
@@ -11,6 +14,22 @@
       bookmark-save-flag 1) ;; save my bookmarks as soon as I create them
 
 (setq-default ispell-program-name "aspell")
+
+;; 光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
+(mouse-avoidance-mode 'animate)
+
+
+;; 没有提示音,也不闪屏
+(setq ring-bell-function 'ignore)
+
+;; 可以递归的使用minibuffer
+(setq enable-recursive-minibuffers t)
+
+;; 不保存连续的重复的kill
+(setq kill-do-not-save-duplicates t)
+
+;; 先格式化再补全
+(setq tab-always-indent 'complete)
 
 ;; Completion ignores filenames ending in any string in this list.
 ;; TODO: replace this setq with an add-to-list. Why destroy the
@@ -85,6 +104,14 @@
 
 ;; Enable narrow-to-region, extremely useful for editing text
 (put 'narrow-to-region 'disabled nil)
+
+;; enable time-stamp future
+(add-hook 'write-file-hooks 'time-stamp)
+
+(eval-after-load "time-stamp"
+  '(progn
+     (setq time-stamp-format "%04y-%02m-%02d %02H:%02M:%02S %:a by %U")))
+
 
 ;; load font-set
 (require 'mine-misc-fontset)
