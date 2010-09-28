@@ -1,13 +1,34 @@
-;;; init.el --- Where all the magic begins
-;;
-;; Part of the Emacs Starter Kit
-;;
-;; This is the first thing to get loaded.
-;;
-;; "Emacs outshines all other editing software in approximately the
-;; same way that the noonday sun does the stars. It is not just bigger
-;; and brighter; it simply makes everything else vanish."
-;; -Neal Stephenson, "In the Beginning was the Command Line"
+;; -*- Emacs-Lisp -*- init.el --- Where all the magic begins
+
+;; Copyright (C) 1996-2010 Liubin
+;; Time-stamp: <2010-09-16 17:34:50 Thursday by ryebread>
+
+;;  __
+;; / /   ()    /7  ()_
+;; / /_ /7/7/7/o\ /7/ \/7
+;; /__////__//_,'///_n_/
+
+;; This file is NOT part of GNU Emacs.
+
+;; This file is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2 of
+;; the License, or (at your option) any later version.
+
+;; This file is distributed in the hope that it will be
+;; useful, but WITHOUT ANY WARRANTY; without even the implied
+;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+;; PURPOSE.  See the GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public
+;; License along with this file; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+;; MA 02111-1307, USA.
+
+;;; Code:
+
+;; uptimes for count
+(setq emacs-load-start-time (current-time))
 
 ;; Turn off mouse interface early in startup to avoid momentary display
 ;; You really don't need these; trust me.
@@ -73,4 +94,23 @@
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
+;; Adding my configuration here
+
+;; add all subdirs under "mine" to load-path
+(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+    (let* ((my-lisp-dir (concat dotfiles-dir "/mine"))
+           (-directory my-lisp-dir)
+           (orig-load-path load-path))
+      (setq load-path (cons my-lisp-dir nil))
+      (normal-top-level-add-subdirs-to-load-path)
+      (nconc load-path orig-load-path)))
+
+(require 'mine-init)
+
+
+;; Display Tip Of The Day.
+(totd)
+
+(message "Emacs startup time: %d seconds."
+         (time-to-seconds (time-since emacs-load-start-time)))
 ;;; init.el ends here
