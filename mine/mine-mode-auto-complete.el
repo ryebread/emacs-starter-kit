@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-28 17:21:35 星期二 by ryebread>
+;; Time-stamp: <2010-09-28 20:23:26 Tuesday by ryebread>
 (require 'auto-complete-config)
 
 (add-to-list 'ac-dictionary-directories
@@ -17,11 +17,13 @@
 
 (setq ac-auto-show-menu t
       ac-use-menu-map t
-      ac-auto-start t
+      ac-auto-start 2
       ac-dwim t
-      ;; ac-candidate-limit ac-menu-height
-      ac-quick-help-delay .5
+      ac-candidate-limit ac-menu-height
+      ac-quick-help-delay .8
       ac-disable-faces nil)
+
+(ac-flyspell-workaround)
 
   (set-default 'ac-sources
                '(ac-source-semantic-raw
@@ -35,3 +37,8 @@
                  ac-source-filename))
 
 (provide 'mine-mode-auto-complete)
+
+
+
+
+

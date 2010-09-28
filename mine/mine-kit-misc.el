@@ -1,6 +1,6 @@
 ; my misc customizations for emacs
 
-;; Time-stamp: <2010-09-28 16:17:08 星期二 by ryebread>
+;; Time-stamp: <2010-09-28 20:49:05 Tuesday by ryebread>
 ; ==============================================================================
 (require 'mine-misc-util)
 
@@ -115,6 +115,9 @@
 
 ;; load font-set
 (require 'mine-misc-fontset)
+
+;; load help setting
+(require 'mine-misc-help)
 
 ;; load this color-theme
 (color-theme-twilight)
