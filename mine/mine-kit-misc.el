@@ -1,6 +1,6 @@
 ; my misc customizations for emacs
 
-;; Time-stamp: <2010-09-28 20:49:05 Tuesday by ryebread>
+;; Time-stamp: <2010-09-28 22:31:27 Tuesday by ryebread>
 ; ==============================================================================
 (require 'mine-misc-util)
 
@@ -124,6 +124,9 @@
 
 ;; visual-line is good to have
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;; maxframe setting
+(require 'mine-misc-maxframe)
 ; ==============================================================================
 
 (provide 'mine-kit-misc)
