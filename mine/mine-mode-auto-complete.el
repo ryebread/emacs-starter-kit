@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-28 20:23:26 Tuesday by ryebread>
+;; Time-stamp: <2010-09-29 08:32:33 星期三 by ryebread>
 (require 'auto-complete-config)
 
 (add-to-list 'ac-dictionary-directories
@@ -9,11 +9,11 @@
 (ac-config-default)
 
 ;; 不让回车的时候执行`ac-complete',用M-j来执行`ac-complete'
-(eal-define-keys
- 'ac-complete-mode-map
- `(("<return>"   nil)
-   ("RET"        nil)
-   ("M-j"        ac-complete)))
+;(eal-define-keys
+; 'ac-complete-mode-map
+; `(("<return>"   nil)
+;   ("RET"        nil)
+;   ("M-j"        ac-complete)))
 
 (setq ac-auto-show-menu t
       ac-use-menu-map t
