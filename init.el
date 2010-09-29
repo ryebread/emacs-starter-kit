@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*- init.el --- Where all the magic begins
 
 ;; Copyright (C) 1996-2010 Liubin
-;; Time-stamp: <2010-09-16 17:34:50 Thursday by ryebread>
+;; Time-stamp: <2010-09-29 14:05:51 星期三 by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -112,5 +112,5 @@
 (totd)
 
 (message "Emacs startup time: %d seconds."
-         (time-to-seconds (time-since emacs-load-start-time)))
+         (float-time (time-since emacs-load-start-time)))
 ;;; init.el ends here

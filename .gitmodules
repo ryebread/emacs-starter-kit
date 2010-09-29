@@ -1,3 +1,9 @@
 [submodule "mine/vendor/auto-complete"]
 	path = mine/vendor/auto-complete
 	url = http://cx4a.org/repo/auto-complete.git
+[submodule "mine/vendor/rinari"]
+	path = mine/vendor/rinari
+	url = git://github.com/rejeep/rinari.git
+[submodule "mine/vendor/rhtml"]
+	path = mine/vendor/rhtml
+	url = git://github.com/eschulte/rhtml.git

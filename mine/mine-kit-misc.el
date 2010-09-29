@@ -1,6 +1,6 @@
 ; my misc customizations for emacs
 
-;; Time-stamp: <2010-09-28 22:31:27 Tuesday by ryebread>
+;; Time-stamp: <2010-09-29 17:02:38 星期三 by ryebread>
 ; ==============================================================================
 (require 'mine-misc-util)
 
@@ -127,6 +127,14 @@
 
 ;; maxframe setting
 (require 'mine-misc-maxframe)
+
+;; 查询天气预报
+(require 'cn-weather)
+(defalias 'weather 'cn-weather-today)
+(defalias 'weather-tomorrow 'cn-weather-forecast)
+(setq cn-weather-city "怀化")
+
+
 ; ==============================================================================
 
 (provide 'mine-kit-misc)

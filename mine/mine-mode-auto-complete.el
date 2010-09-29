@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-29 08:32:33 星期三 by ryebread>
+;; Time-stamp: <2010-09-29 13:33:59 星期三 by ryebread>
 (require 'auto-complete-config)
 
 (add-to-list 'ac-dictionary-directories
@@ -37,8 +37,3 @@
                  ac-source-filename))
 
 (provide 'mine-mode-auto-complete)
-
-
-
-
-
