@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-29 13:33:59 星期三 by ryebread>
+;; Time-stamp: <2010-09-29 20:54:39 Wednesday by ryebread>
 (require 'auto-complete-config)
 
 (add-to-list 'ac-dictionary-directories
@@ -17,7 +17,7 @@
 
 (setq ac-auto-show-menu t
       ac-use-menu-map t
-      ac-auto-start 2
+      ac-auto-start t
       ac-dwim t
       ac-candidate-limit ac-menu-height
       ac-quick-help-delay .8
@@ -35,5 +35,7 @@
                  ac-source-imenu
                  ac-source-files-in-current-dir
                  ac-source-filename))
+
+(add-to-list 'ac-modes 'rhtml-mode)
 
 (provide 'mine-mode-auto-complete)

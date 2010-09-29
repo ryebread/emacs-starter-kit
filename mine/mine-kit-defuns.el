@@ -17,7 +17,7 @@
       (if (looking-at "\\_>")
           (hippie-expand nil)
         (indent-for-tab-command)))))
-(global-set-key (kbd "TAB") 'smart-tab)
+
 ;; =============================================================================
 
 ;; function to Copy-only instead of kill (reddit comments)

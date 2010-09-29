@@ -3,19 +3,22 @@
 ;;; Keybindings for edit
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line)
 
+(global-set-key (kbd "C-8") 'extend-selection)
 (global-set-key (kbd "M-w") 'smart-copy)
+
+(global-set-key (kbd "TAB") 'smart-tab)
 
 (global-set-key (kbd "C-o") 'open-line-after)
 (global-set-key (kbd "C-S-o") 'open-line-before)
 (global-set-key (kbd "S-<return>") 'open-line)
 
+(global-set-key (kbd "C-k") 'smart-kill)
+(global-set-key (kbd "C-S-k") 'kill-line)
+(global-set-key (kbd "M-S-k") 'del-to-begin)
+
 (eal-define-keys-commonly
  global-map
  `(
-   ;; 删除整行,需要重新调整与paredit一致
-   ("C-S-k" kill-line)
-   ("C-k" smart-kill)
-   ("M-S-k" del-to-begin)
    ("M-D" my-kill-word)
    ("M-Y" redo)
    ("C-0" beginning-of-line-text)

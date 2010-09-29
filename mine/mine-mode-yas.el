@@ -1,14 +1,17 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-29 17:40:34 星期三 by ryebread>
+;; Time-stamp: <2010-09-29 21:12:30 Wednesday by ryebread>
 
 (require 'yasnippet)
 
 (yas/global-mode 1)
 
+(setq yas/snippet-dirs (concat dotfiles-dir "mine/snippets"))
+
 (defun yasnippet-settings ()
   "settings for `yasnippet'."
-  (setq yas/root-directory (concat dotfiles-dir "mine/snippets"))
+  (setq yas/snippet-dirs (concat dotfiles-dir "mine/snippets"))
+
 
   (defun yasnippet-unbind-trigger-key ()
     "Unbind `yas/trigger-key'."
@@ -35,9 +38,9 @@
  'yas/minor-mode-map
  `(("C-c C-f" yas/find-snippets)))
 
-(eval-after-load "yasnippet"
-  `(yasnippet-settings))
+;(eval-after-load "yasnippet"
+;  `(yasnippet-settings))
 
-(yas/load-directory yas/root-directory)
+(yas/load-directory yas/snippet-dirs)
 
 (provide 'mine-mode-yas)
