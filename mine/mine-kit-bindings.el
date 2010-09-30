@@ -2,19 +2,21 @@
 ;; ===============================================================================
 ;;; Keybindings for edit
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line)
+(global-set-key (kbd "C-2") 'set-mark-command)
 
 (global-set-key (kbd "C-8") 'extend-selection)
 (global-set-key (kbd "M-w") 'smart-copy)
 
 (global-set-key (kbd "TAB") 'smart-tab)
+(global-set-key (kbd "C-M-\\") 'smart-indent)
 
 (global-set-key (kbd "C-o") 'open-line-after)
 (global-set-key (kbd "C-S-o") 'open-line-before)
 (global-set-key (kbd "S-<return>") 'open-line)
 
 (global-set-key (kbd "C-k") 'smart-kill)
-(global-set-key (kbd "C-S-k") 'kill-line)
-(global-set-key (kbd "M-S-k") 'del-to-begin)
+(global-set-key (kbd "C-M-k") 'kill-line)
+(global-set-key (kbd "C-S-k") 'del-to-begin)
 
 (eal-define-keys-commonly
  global-map
@@ -22,7 +24,7 @@
    ("M-D" my-kill-word)
    ("M-Y" redo)
    ("C-0" beginning-of-line-text)
-   ("C-M-\\" smart-indent)))
+   ))
 
 ;;; buffer relative operation
 (global-set-key (kbd "C-x k") 'kill-this-buffer)  ; 立即关闭当前buffer
@@ -32,6 +34,7 @@
 (global-set-key (kbd "C-h o c") 'describe-char)
 (global-set-key (kbd "C-h C-m") 'get-mode-name)
 (global-set-key (kbd "C-h C-l") 'count-brf-lines)
+(global-set-key (kbd "C-h o p") 'message-point)
 
 (global-set-key (kbd "C-x ESC ESC") 'repeat-complex-command)
 

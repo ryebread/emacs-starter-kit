@@ -158,8 +158,10 @@ Subsequent calls expands the selection to larger semantic unit."
 (defun my-kill-word ()
   "删除一个单词, 当光标处于单词中间时也删除整个单词, 这是与`kill-word'的区别"
   (interactive)
-  (wcy-mark-some-thing-at-point)
-  (backward-kill-word-or-kill-region))
+  (thing-at-point 'word)
+  (if mark-active
+      (kill-region)
+    (backward-kill-word 1)))
 
 
 ;; =============================================================================
