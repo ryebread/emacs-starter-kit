@@ -134,6 +134,10 @@
 (defalias 'weather-tomorrow 'cn-weather-forecast)
 (setq cn-weather-city "怀化")
 
+(require 'autopair)
+(autopair-global-mode)
+(defun turn-on-paredit ())   ;cheat for start-kit's paredit
+(defun esk-paredit-nonlisp ())
 
 ; ==============================================================================
 

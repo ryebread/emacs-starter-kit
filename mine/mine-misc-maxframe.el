@@ -1,18 +1,21 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-28 22:29:29 Tuesday by ryebread>
+;; Time-stamp: <2010-09-30 16:04:02 Thursday by ryebread>
 
 (require 'maxframe)
 
 (defun toggle-fullscreen (&optional f)
-  "Toggle frame F fullscreen."
   (interactive)
-  (set-frame-parameter f 'fullscreen
-                       (if (frame-parameter f 'fullscreen) nil 'fullboth)))
+  (let ((current-value (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+                         (if (equal 'fullboth current-value)
+                             (if (boundp 'old-fullscreen) old-fullscreen nil)
+                           (progn (setq old-fullscreen current-value)
+                                  'fullboth)))))
 
 (defvar frame-state nil "State of frame, t means maximized, and nil means not maximized.")
 
-(unless mswin
+(when mswin
   (defun toggle-fullscreen ()
     "Toggle frame fullscreen."
     (interactive)
@@ -47,13 +50,13 @@ otherwise let frame maximized"
     "Restores a maximized frame.  See `x-maximize-frame'."
     (interactive)
     (if frame-state
-      (maximize t))
+        (maximize t))
     (setq frame-state nil)))
 
 (defun w32-minimize-frame ()
   "Minimize emacs window in windows os"
   (interactive)
-  ; #xf020 minimize
+                                        ; #xf020 minimize
   (w32-send-sys-command #xf020))
 
 (defun maximize-frame ()
@@ -86,17 +89,6 @@ system."
       (maximize-frame))
     (setq frame-state (not state))))
 
-(define-prefix-command 'm-spc-map)
-(global-set-key (kbd "M-SPC") 'm-spc-map)
-
-(let ((map global-map)
-      (key-pairs
-       `(("M-SPC x"   toggle-maximize-frame)
-         ("M-SPC M-x" toggle-maximize-frame)
-         ("M-SPC n"   minimize-frame)
-         ("M-SPC c"   delete-frame)
-         ("M-SPC M-c" delete-frame))))
-  (apply-define-key map key-pairs))
 
 ;; 启动的时候不能直接调用`maximize-frame', 否则如果去掉工具栏的话,
 ;; 底下会有一条缝隙, 没有完全最大化

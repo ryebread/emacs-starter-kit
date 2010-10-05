@@ -14,6 +14,9 @@
 (global-set-key (kbd "C-S-o") 'open-line-before)
 (global-set-key (kbd "S-<return>") 'open-line)
 
+(global-set-key (kbd "M-p") 'move-text-up)
+(global-set-key (kbd "M-n") 'move-text-down)
+
 (global-set-key (kbd "C-k") 'smart-kill)
 (global-set-key (kbd "C-M-k") 'kill-line)
 (global-set-key (kbd "C-S-k") 'del-to-begin)
@@ -38,6 +41,24 @@
 
 (global-set-key (kbd "C-x ESC ESC") 'repeat-complex-command)
 
+;;; fullscreen
+;; (define-prefix-command 'm-spc-map)
+;; (global-set-key (kbd "M-SPC") 'm-spc-map)
+
+;; (let ((map global-map)
+;;       (key-pairs
+;;        `(("M-SPC x"   toggle-maximize-frame)
+;;          ("M-SPC M-x" toggle-maximize-frame)
+;;          ("M-SPC n"   minimize-frame)
+;;          ("M-SPC c"   delete-frame)
+;;          ("M-SPC M-c" delete-frame))))
+;;   (apply-define-key map key-pairs))
+
+(global-set-key [f11] 'toggle-fullscreen)
+(global-set-key (kbd "C-<f11>") 'toggle-maximize-frame)
+
+
+;;;
 (global-set-key (kbd "M-j") 'pop-to-mark-command)
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 (global-set-key (kbd "M-g") 'goto-line)
