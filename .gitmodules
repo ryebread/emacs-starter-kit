@@ -7,3 +7,6 @@
 [submodule "mine/vendor/rhtml"]
 	path = mine/vendor/rhtml
 	url = git://github.com/eschulte/rhtml.git
+[submodule "mine/vendor/twittering-mode"]
+	path = mine/vendor/twittering-mode
+	url = git://github.com/hayamiz/twittering-mode.git

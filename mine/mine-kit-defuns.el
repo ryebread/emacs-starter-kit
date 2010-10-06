@@ -252,6 +252,9 @@ With arg N, insert N newlines."
       (exchange-point-and-mark)
       (setq deactivate-mark nil)))
    (t
+
+
+
     (let ((column (current-column)))
       (beginning-of-line)
       (when (or (> arg 0) (not (bobp)))
@@ -280,7 +283,7 @@ With arg N, insert N newlines."
     "\\*Apropos" "\\*compilation" "\\*Customize" "\\*Calc""\\keywiz-scores"
     "\\*BBDB\\*" "\\*trace of SMTP" "\\*vc" "\\*cvs" "\\*keywiz"
     "\\*WoMan-Log" "\\*tramp" "\\*desktop\\*" "\\*Async Shell Command"
-    "\\*Backtrace\\*"
+    "\\*Backtrace\\*" "\\*twmode"
      )  "List of regexps matching names of buffers to kill.")
 
 (defvar my-clean-buffers-modes
