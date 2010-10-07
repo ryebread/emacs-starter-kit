@@ -4,6 +4,8 @@
 (require 'mine-mode-yas)
 (require 'mine-mode-auto-complete)
 
+;; setting for org mode
+(require 'mine-mode-org)
 
 ;;; setting for Rails
 (require 'mine-mode-rails)

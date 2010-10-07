@@ -1,8 +1,11 @@
 TODO:
 
-Submit the packages in elpa-to-submit to ELPA.
+* TODO 在清理无用BUFF func 中,最好加入不删除条件功能,如\\* !\\*scrath*\\
+* TODO 提供自动隐藏无关窗口:如在TAB后自动补全,或者 rails生成输出时自动打开窗口在C-g后应该自动隐藏
+* TODO rinari在script/rails 后没有自动 补全功能(auto-complete在IDO模式没工作)
+* TODO 测试HTML模式中的操作,找个好方法
+* TODO 如何快速找到快捷键是在哪里绑定的
+* TODO twittering-mode 身份认证及trending功能,还有twittering-user-list-interactive
+* TODO 配置好ORG-MODE
+* TODO 好用的窗口管理模式
 
-to write/finish:
-* submit ruby fixes to flymake
-
-which-func-mode in ruby?

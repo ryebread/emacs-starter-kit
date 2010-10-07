@@ -151,19 +151,27 @@ Subsequent calls expands the selection to larger semantic unit."
           (forward-sexp)))
       (mark-sexp -1))))
 
-;(global-set-key (kbd "M-8") 'extend-selection)
 ;; =============================================================================
 
 ;;;###autoload
 (defun my-kill-word ()
   "删除一个单词, 当光标处于单词中间时也删除整个单词, 这是与`kill-word'的区别"
   (interactive)
-  (thing-at-point 'word)
-  (if mark-active
-      (kill-region)
-    (backward-kill-word 1)))
+  (call-interactively 'extend-selection)
+  (call-interactively 'backward-kill-word))
 
-
+;; =============================================================================
+;; 删除当前光标后的空格
+(defun whack-whitespace (arg)
+  "Delete all white space from point to the next word.  With prefix ARG
+    delete across newlines as well.  The only danger in this is that you
+    don't have to actually be at the end of a word to make it work.  It
+    skips over to the next whitespace and then whacks it all to the next
+    word."
+  (interactive "P")
+  (let ((regexp (if arg "[ \t\n]+" "[ \t]+")))
+    (re-search-forward regexp nil t)
+    (replace-match "" nil nil)))
 ;; =============================================================================
 
 ;; 删除当前光标到行首的字符
@@ -194,7 +202,7 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
   (interactive "*P")
   (comment-normalize-vars)
   (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
-	  (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+      (comment-or-uncomment-region (line-beginning-position) (line-end-position))
     (comment-dwim arg)))
 
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
@@ -284,7 +292,7 @@ With arg N, insert N newlines."
     "\\*BBDB\\*" "\\*trace of SMTP" "\\*vc" "\\*cvs" "\\*keywiz"
     "\\*WoMan-Log" "\\*tramp" "\\*desktop\\*" "\\*Async Shell Command"
     "\\*Backtrace\\*" "\\*twmode"
-     )  "List of regexps matching names of buffers to kill.")
+    )  "List of regexps matching names of buffers to kill.")
 
 (defvar my-clean-buffers-modes
   '(help-mode Info-mode not-loaded-yet)
@@ -295,25 +303,25 @@ With arg N, insert N newlines."
   (interactive)
   (let (string buffname)
     (mapc (lambda (buffer)
-              (and (setq buffname (buffer-name buffer))
-                   (or (catch 'found
-                         (mapc '(lambda (name)
-                                    (if (string-match name buffname)
-                                        (throw 'found t)))
-                                 my-clean-buffers-names)
-                         nil)
-                       (save-excursion
-                         (set-buffer buffname)
-                         (catch 'found
-                           (mapc '(lambda (mode)
-                                      (if (eq major-mode mode)
-                                          (throw 'found t)))
-                                   my-clean-buffers-modes)
-                           nil)))
-                   (kill-buffer buffname)
-                   (setq string (concat string
-                                        (and string ", ") buffname))))
-            (buffer-list))
+            (and (setq buffname (buffer-name buffer))
+                 (or (catch 'found
+                       (mapc '(lambda (name)
+                                (if (string-match name buffname)
+                                    (throw 'found t)))
+                             my-clean-buffers-names)
+                       nil)
+                     (save-excursion
+                       (set-buffer buffname)
+                       (catch 'found
+                         (mapc '(lambda (mode)
+                                  (if (eq major-mode mode)
+                                      (throw 'found t)))
+                               my-clean-buffers-modes)
+                         nil)))
+                 (kill-buffer buffname)
+                 (setq string (concat string
+                                      (and string ", ") buffname))))
+          (buffer-list))
     (if string (message "Deleted: %s" string)
       (message "No buffers deleted"))))
 

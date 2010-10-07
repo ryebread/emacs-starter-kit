@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-10-06 11:48:07 Wednesday by ryebread>
+;; Time-stamp: <2010-10-06 14:41:13 Wednesday by ryebread>
 
 (if is-before-emacs-21
     (require 'ido "ido-for-21"))
@@ -64,8 +64,8 @@
              (setq ido-mode-map ido-completion-map))))
       (eal-define-keys-commonly
        map
-       `(("M-."   ido-next-match-dir)
-         ("M-,"   ido-prev-match-dir)
+       `(("C-M-n" ido-next-match-dir)
+         ("C-M-p" ido-prev-match-dir)
          ("M-h"   ido-up-directory)
          ("M-H"   ido-up-directory-clean-text)
          ("C-h"   ido-goto-home)

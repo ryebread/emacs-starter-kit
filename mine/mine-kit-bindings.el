@@ -2,6 +2,7 @@
 ;; ===============================================================================
 ;; key bindings for global fund
 (global-set-key (kbd "C-x t") 'twit)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;;; Keybindings for edit
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line)
@@ -26,16 +27,15 @@
 (global-set-key (kbd "C-M-k") 'kill-line)
 (global-set-key (kbd "C-S-k") 'del-to-begin)
 
-(global-set-key (kbd "C-m") 'delete-indentation)
-(global-set-key (kbd "M-m") 'fixup-whitespace)
+(global-set-key (kbd "C-j") 'whack-whitespace)
+(global-set-key (kbd "M-j") 'fixup-whitespace)
+(global-set-key (kbd "C-M-j") 'delete-indentation)
+
+(global-set-key (kbd "M-?") 'redo)
 
 (eal-define-keys-commonly
  global-map
- `(
-   ("M-D" my-kill-word)
-
-
-   ("M-Y" redo)
+ `(("M-D" my-kill-word)
    ))
 
 ;;; buffer relative operation

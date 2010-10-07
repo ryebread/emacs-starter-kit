@@ -1,6 +1,6 @@
 ; my misc customizations for emacs
 
-;; Time-stamp: <2010-09-29 17:02:38 星期三 by ryebread>
+;; Time-stamp: <2010-10-06 13:52:17 Wednesday by ryebread>
 ; ==============================================================================
 (require 'mine-misc-util)
 
@@ -8,7 +8,7 @@
       user-mail-address "hhdslb@gmail.com")
 
 (setq delete-selection-mode t
-      debug-on-error t)
+      debug-on-error nil)
 
 (setq bookmark-default-file "~/.emacs.d/bookmarks.bmk"
       bookmark-save-flag 1) ;; save my bookmarks as soon as I create them
@@ -139,6 +139,7 @@
 (defun turn-on-paredit ())   ;cheat for start-kit's paredit
 (defun esk-paredit-nonlisp ())
 
+(require 'redo+)
 ; ==============================================================================
 
 (provide 'mine-kit-misc)
