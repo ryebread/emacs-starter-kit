@@ -1,6 +1,6 @@
 ; my misc customizations for emacs
 
-;; Time-stamp: <2010-10-06 13:52:17 Wednesday by ryebread>
+;; Time-stamp: <2010-10-09 17:21:18 Saturday by ryebread>
 ; ==============================================================================
 (require 'mine-misc-util)
 
@@ -134,12 +134,17 @@
 (defalias 'weather-tomorrow 'cn-weather-forecast)
 (setq cn-weather-city "怀化")
 
+;; autopair future
 (require 'autopair)
 (autopair-global-mode)
 (defun turn-on-paredit ())   ;cheat for start-kit's paredit
 (defun esk-paredit-nonlisp ())
 
+;; redo
 (require 'redo+)
+
+;; w3m setting
+;;(require mine-misc-w3m)
 ; ==============================================================================
 
 (provide 'mine-kit-misc)

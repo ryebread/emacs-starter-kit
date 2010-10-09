@@ -98,7 +98,7 @@
 
 ;; add all subdirs under "mine" to load-path
 (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-    (let* ((my-lisp-dir (concat dotfiles-dir "/mine"))
+    (let* ((my-lisp-dir (concat dotfiles-dir "mine"))
            (-directory my-lisp-dir)
            (orig-load-path load-path))
       (setq load-path (cons my-lisp-dir nil))
