@@ -1,11 +1,5 @@
 (require 'w3m)
 
-(eal-define-keys-commonly
- global-map
- `(("M-M"     w3m-goto-url-new-session)
-   ("C-x M-B" view-w3m-bookmark)
-   ("C-x M-m" switch-to-w3m)))
-
 (defun w3m-browse-current-buffer ()
   "Use w3m browser current buffer."
   (interactive)
@@ -29,7 +23,8 @@
     (make-local-variable 'hl-line-face)
     (setq hl-line-face 'hl-line-nonunderline-face)
     (setq hl-line-overlay nil)
-    (color-theme-adjust-hl-line-face))
+    ;; (color-theme-adjust-hl-line-face)
+    )
 
   (add-hook 'w3m-mode-hook 'w3m-mode-settings)
 

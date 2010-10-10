@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-29 20:54:39 Wednesday by ryebread>
+;; Time-stamp: <2010-10-10 14:55:49 Sunday by ryebread>
 (require 'auto-complete-config)
 
 (add-to-list 'ac-dictionary-directories
@@ -19,7 +19,7 @@
       ac-use-menu-map t
       ac-auto-start t
       ac-dwim t
-      ac-candidate-limit ac-menu-height
+      ;; ac-candidate-limit ac-menu-height
       ac-quick-help-delay .8
       ac-disable-faces nil)
 

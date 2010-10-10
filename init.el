@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*- init.el --- Where all the magic begins
 
 ;; Copyright (C) 1996-2010 Liubin
-;; Time-stamp: <2010-09-29 14:05:51 星期三 by ryebread>
+;; Time-stamp: <2010-10-10 14:31:18 Sunday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -37,7 +37,6 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Load path etc.
-
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
@@ -92,18 +91,12 @@
 (if (file-exists-p system-specific-config) (load system-specific-config))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 (if (file-exists-p user-specific-dir)
-  (mapc #'load (directory-files user-specific-dir nil ".*el$")))
+    (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
 ;; Adding my configuration here
-
-;; add all subdirs under "mine" to load-path
-(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-    (let* ((my-lisp-dir (concat dotfiles-dir "mine"))
-           (-directory my-lisp-dir)
-           (orig-load-path load-path))
-      (setq load-path (cons my-lisp-dir nil))
-      (normal-top-level-add-subdirs-to-load-path)
-      (nconc load-path orig-load-path)))
+(let ((default-directory (concat dotfiles-dir "mine")))
+  (normal-top-level-add-to-load-path '("."))
+  (normal-top-level-add-subdirs-to-load-path))
 
 (require 'mine-init)
 

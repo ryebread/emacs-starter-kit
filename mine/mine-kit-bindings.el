@@ -64,6 +64,14 @@
 ;; (global-set-key (kbd "C-x C-m") 'execute-extended-command) ;; faster M-x
 ;; (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 ;; (global-set-key (kbd "C-w") 'backward-kill-word)           ;; easy editing
+
+;; w3m relative bindings
+(eal-define-keys-commonly
+ global-map
+ `(("M-M"     w3m-goto-url-new-session)
+   ("C-x M-B" view-w3m-bookmark)
+   ("C-x M-m" switch-to-w3m)
+   ("C-x M-c" w3m-browse-current-buffer)))
 ;; ===============================================================================
 
 (provide 'mine-kit-bindings)

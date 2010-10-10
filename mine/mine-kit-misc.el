@@ -1,6 +1,6 @@
 ; my misc customizations for emacs
 
-;; Time-stamp: <2010-10-09 17:21:18 Saturday by ryebread>
+;; Time-stamp: <2010-10-10 09:08:22 Sunday by ryebread>
 ; ==============================================================================
 (require 'mine-misc-util)
 
@@ -144,7 +144,7 @@
 (require 'redo+)
 
 ;; w3m setting
-;;(require mine-misc-w3m)
+(require 'mine-misc-w3m)
 ; ==============================================================================
 
 (provide 'mine-kit-misc)
