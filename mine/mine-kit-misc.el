@@ -1,6 +1,6 @@
 ; my misc customizations for emacs
 
-;; Time-stamp: <2010-10-10 09:08:22 Sunday by ryebread>
+;; Time-stamp: <2010-10-15 10:42:14 Friday by ryebread>
 ; ==============================================================================
 (require 'mine-misc-util)
 
@@ -139,6 +139,12 @@
 (autopair-global-mode)
 (defun turn-on-paredit ())   ;cheat for start-kit's paredit
 (defun esk-paredit-nonlisp ())
+
+;; bookmark
+(require 'bm)
+
+;; mark up
+(require 'smart-mark)
 
 ;; redo
 (require 'redo+)

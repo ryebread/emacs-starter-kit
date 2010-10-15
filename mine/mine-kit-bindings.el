@@ -5,6 +5,8 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;;; Keybindings for edit
+(global-set-key (kbd "%") 'match-paren)
+
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line)
 (global-set-key (kbd "C-2") 'set-mark-command)
 
@@ -41,6 +43,21 @@
 ;;; buffer relative operation
 (global-set-key (kbd "C-x k") 'kill-this-buffer)  ; 立即关闭当前buffer
 (global-set-key (kbd "C-x C-k") 'my-clean-buffers) ;删除临时buffers
+
+;; bm(bookmark)bindings
+(global-unset-key (kbd "C-1"))
+(global-set-key (kbd "C-1 t") 'bm-toggle)
+(global-set-key (kbd "C-1 n") 'bm-next)
+(global-set-key (kbd "C-1 p") 'bm-previous)
+
+(global-set-key (kbd "C-1 a") 'bm-toggle-cycle-all-buffers)
+(global-set-key (kbd "C-1 r") 'bm-bookmark-regexp)
+(global-set-key (kbd "C-1 s") 'bm-show-all)
+(global-set-key (kbd "C-1 c") 'bm-remove-all-current-buffer)
+
+(global-set-key (kbd "<left-fringe> <mouse-5>") 'bm-next-mouse)
+(global-set-key (kbd "<left-fringe> <mouse-4>") 'bm-previous-mouse)
+(global-set-key (kbd "<left-fringe> <mouse-1>") 'bm-toggle-mouse)
 
 ;;; misc key bindings
 (global-set-key (kbd "C-h o c") 'describe-char)

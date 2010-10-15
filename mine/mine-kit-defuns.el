@@ -219,7 +219,15 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
     (call-interactively 'indent-region)))
 
 ;; =============================================================================
+;; 智能的%找括号,好像只有()
+(defun match-paren (arg)
+  "Go to the matching paren if on a paren; otherwise insert %."
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+	((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+	(t (self-insert-command (or arg 1)))))
 
+;; =============================================================================
 ;;;###autoload
 (defun open-line-before ()
   "Insert a newline before cur line and leave point before it.
