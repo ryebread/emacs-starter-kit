@@ -102,5 +102,4 @@
 ;;; End Auto Completion                                                                                        
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-(provide 'mine-mode-python)
+provide 'mine-mode-python)
