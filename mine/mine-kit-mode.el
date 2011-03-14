@@ -12,7 +12,7 @@
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 
 ;; setting for python
-;;(require 'mine-mode-python)
+(require 'mine-mode-python)
 
 ;;; setting for Rails
 (require 'mine-mode-rails)

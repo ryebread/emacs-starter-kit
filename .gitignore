@@ -23,3 +23,5 @@ tramp
 .#*
 ac-comphist.dat
 /abbrev_defs
+/build
+/el-get
