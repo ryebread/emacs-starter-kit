@@ -20,4 +20,8 @@ elpa-to-submit/nxhtml/etc/schema/xhtml-loader.rnc~
 session*
 tramp
 \#*
-history
+.#*
+ac-comphist.dat
+/abbrev_defs
+/build
+/el-get

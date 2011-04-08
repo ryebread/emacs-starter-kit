@@ -1,4 +1,4 @@
-;;; starter-kit-defuns.el --- Define some custom functions
+;;; mine-kit-defuns.el --- Define some custom functions
 ;;
 ;; Part of the Emacs Starter Kit
 
@@ -262,5 +262,5 @@ Symbols matching the text at point are put first in the completion list."
   (let ((name (file-relative-name file)))
     (vc-git-command buf 0 name "blame" "-w" rev)))
 
-(provide 'starter-kit-defuns)
-;;; starter-kit-defuns.el ends here
+(provide 'mine-kit-defuns)
+;;; mine-kit-defuns.el ends here

@@ -1,4 +1,4 @@
-;;; starter-kit-misc.el --- Things that don't fit anywhere else
+;;; mine-kit-misc.el --- Things that don't fit anywhere else
 ;;
 ;; Part of the Emacs Starter Kit
 
@@ -14,6 +14,12 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (ansi-color-for-comint-mode-on)
+
+;;; set fontset to auto use my fav-font
+(require 'mine-misc-fontset)
+
+;;; use the twilight theme
+(color-theme-twilight)
 
 (setq visible-bell t
       fringe-mode (cons 4 0)
@@ -156,5 +162,5 @@
             (unless (string-match "question" oddmuse-post)
               (setq oddmuse-post (concat "uihnscuskc=1;" oddmuse-post)))))
 
-(provide 'starter-kit-misc)
-;;; starter-kit-misc.el ends here
+(provide 'mine-kit-misc)
+;;; mine-kit-misc.el ends here

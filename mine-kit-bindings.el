@@ -1,4 +1,4 @@
-;;; starter-kit-bindings.el --- Set up some handy key bindings
+;;; mine-kit-bindings.el --- Set up some handy key bindings
 ;;
 ;; Part of the Emacs Starter Kit.
 
@@ -91,5 +91,5 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
-(provide 'starter-kit-bindings)
-;;; starter-kit-bindings.el ends here
+(provide 'mine-kit-bindings)
+;;; mine-kit-bindings.el ends here

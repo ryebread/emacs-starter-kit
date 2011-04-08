@@ -1,13 +1,34 @@
-;;; init.el --- Where all the magic begins
-;;
-;; Part of the Emacs Starter Kit
-;;
-;; This is the first thing to get loaded.
-;;
-;; "Emacs outshines all other editing software in approximately the
-;; same way that the noonday sun does the stars. It is not just bigger
-;; and brighter; it simply makes everything else vanish."
-;; -Neal Stephenson, "In the Beginning was the Command Line"
+;; -*- Emacs-Lisp -*- init.el --- Where all the magic begins
+
+;; Copyright (C) 1996-2011 Liubin
+;; Time-stamp: <2010-10-10 14:31:18 Sunday by ryebread>
+
+;;  __
+;; / /   ()    /7  ()_
+;; / /_ /7/7/7/o\ /7/ \/7
+;; /__////__//_,'///_n_/
+
+;; This file is NOT part of GNU Emacs.
+
+;; This file is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2 of
+;; the License, or (at your option) any later version.
+
+;; This file is distributed in the hope that it will be
+;; useful, but WITHOUT ANY WARRANTY; without even the implied
+;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+;; PURPOSE.  See the GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public
+;; License along with this file; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+;; MA 02111-1307, USA.
+
+;;; Code:
+
+;; uptimes for count
+(setq emacs-load-start-time (current-time))
 
 ;; Turn off mouse interface early in startup to avoid momentary display
 ;; You really don't need these; trust me.
@@ -16,7 +37,6 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Load path etc.
-
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
@@ -24,18 +44,21 @@
 
 (add-to-list 'load-path dotfiles-dir)
 
-(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
+(add-to-list 'load-path (concat dotfiles-dir "/el-get"))
 
-(setq autoload-file (concat dotfiles-dir "loaddefs.el"))
-(setq package-user-dir (concat dotfiles-dir "elpa"))
+;;(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
+
+;;(setq autoload-file (concat dotfiles-dir "loaddefs.el"))
+;;(setq package-user-dir (concat dotfiles-dir "elpa"))
 (setq custom-file (concat dotfiles-dir "custom.el"))
 
-(require 'package)
-(dolist (source '(("technomancy" . "http://repo.technomancy.us/emacs/")
-                  ("elpa" . "http://tromey.com/elpa/")))
-  (add-to-list 'package-archives source t))
-(package-initialize)
-(require 'starter-kit-elpa)
+;;(require 'package)
+;;(dolist (source '(("technomancy" . "http://repo.technomancy.us/emacs/")
+;;                  ("elpa" . "http://tromey.com/elpa/")))
+;;  (add-to-list 'package-archives source t))
+;;(package-initialize)
+;;(require 'starter-kit-elpa)
+(require 'mine-kit-el-get)
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
@@ -52,17 +75,19 @@
 
 ;; Load up starter kit customizations
 
-(require 'starter-kit-defuns)
-(require 'starter-kit-bindings)
-(require 'starter-kit-misc)
+(require 'mine-kit-defuns)
+(require 'mine-kit-bindings)
+(require 'mine-kit-misc)
 (require 'starter-kit-registers)
+(require 'mine-kit-mode)
+
 (require 'starter-kit-eshell)
 (require 'starter-kit-lisp)
 (require 'starter-kit-perl)
 (require 'starter-kit-ruby)
 (require 'starter-kit-js)
 
-(regen-autoloads)
+;;(regen-autoloads)
 (load custom-file 'noerror)
 
 ;; You can keep system- or user-specific customizations here
@@ -74,6 +99,9 @@
 (if (file-exists-p system-specific-config) (load system-specific-config))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 (if (file-exists-p user-specific-dir)
-  (mapc #'load (directory-files user-specific-dir nil ".*el$")))
+    (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
+
+(message "Emacs startup time: %d seconds."
+         (float-time (time-since emacs-load-start-time)))
 ;;; init.el ends here
