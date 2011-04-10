@@ -1,7 +1,10 @@
-;(require 'python-mode)
-;(require 'auto-complete)
-;(require 'yasnippet)
-;(require 'ipython)
+(require 'python)
+;;(require 'auto-complete)
+;;(require 'yasnippet)
+
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; Initialize Pymacs
 (autoload 'pymacs-apply "pymacs")
@@ -17,9 +20,9 @@
 ;Don't map TAB to yasnippet
 ;In fact, set it to something we'll never use because
 ;we'll only ever trigger it indirectly.
-;(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
-;(yas/initialize)
-;(yas/load-directory "~/.emacs.d/snippets")
+;;(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
+;;(yas/initialize)
+;;(yas/load-directory "~/.emacs.d/snippets")
 
 
 
@@ -77,26 +80,27 @@
                       (append ac-sources '(ac-source-rope) '(ac-source-yasnippet)))
                  (set (make-local-variable 'ac-find-function) 'ac-python-find)
                  (set (make-local-variable 'ac-candidate-function) 'ac-python-candidate)
-                 (set (make-local-variable 'ac-auto-start) nil)))
+;;                 (set (make-local-variable 'ac-auto-start) nil)
+                 ))
 
 ;;Ryan's python specific tab completion
-(defun ryan-python-tab ()
-  ; Try the following:
-  ; 1) Do a yasnippet expansion
-  ; 2) Do a Rope code completion
-  ; 3) Do an indent
-  (interactive)
-  (if (eql (ac-start) 0)
-      (indent-for-tab-command)))
+;; (defun ryan-python-tab ()
+;;   ; Try the following:
+;;   ; 1) Do a yasnippet expansion
+;;   ; 2) Do a Rope code completion
+;;   ; 3) Do an indent
+;;   (interactive)
+;;   (if (eql (ac-start) 0)
+;;       (indent-for-tab-command)))
 
-(defadvice ac-start (before advice-turn-on-auto-start activate)
-  (set (make-local-variable 'ac-auto-start) t))
-(defadvice ac-cleanup (after advice-turn-off-auto-start activate)
-  (set (make-local-variable 'ac-auto-start) nil))
 
-;; (define-key python-mode-map "\t" 'ryan-python-tab) ;use just for python.el
+;; (defadvice ac-start (before advice-turn-on-auto-start activate)
+;;   (set (make-local-variable 'ac-auto-start) t))
+;; (defadvice ac-cleanup (after advice-turn-off-auto-start activate)
+;;   (set (make-local-variable 'ac-auto-start) nil))
+
+;;(define-key python-mode-map "\t" 'ryan-python-tab)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End Auto Completion
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (provide 'mine-mode-python)

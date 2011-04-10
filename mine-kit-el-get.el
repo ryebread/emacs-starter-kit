@@ -62,8 +62,16 @@
    ;; Completion
 
    auto-complete
+
+
+   ;; (:name yasnippet
+   ;;        :type svn
+   ;;        :url "http://yasnippet.googlecode.com/svn/trunk/"
+   ;;        :features "yasnippet"
+   ;;        :autoloads nil)
+
    yasnippet
-   ;;         smart-tab
+   smart-tab
    ;;         ac-dabbrev
    ;;         ac-slime
 
@@ -147,39 +155,39 @@
    ropemacs
    (:name ipython :type http :url "http://ipython.scipy.org/dist/ipython.el")
 
-       ;; Javascript
+   ;; Javascript
 
-;;         js2-mode
-;;         coffee-mode
-;;         js-comint
-;;         (:name moz :type http :url "http://github.com/bard/mozrepl/raw/master/chrome/content/moz.el")
-;;         json
+   ;;         js2-mode
+   ;;         coffee-mode
+   ;;         js-comint
+   ;;         (:name moz :type http :url "http://github.com/bard/mozrepl/raw/master/chrome/content/moz.el")
+   ;;         json
 
-;;         ;; Erlang
+   ;;         ;; Erlang
 
-;;         (:name erlware-mode ;; Overridden to use git version
-;;                :type git :url "https://github.com/erlware/erlware-mode.git"
-;;                :load "erlang-start.el")
+   ;;         (:name erlware-mode ;; Overridden to use git version
+   ;;                :type git :url "https://github.com/erlware/erlware-mode.git"
+   ;;                :load "erlang-start.el")
 
-;;         ;; PHP
+   ;;         ;; PHP
 
-;;         php-mode
-;;         smarty-mode
+   ;;         php-mode
+   ;;         smarty-mode
 
-        ;; CSS
-        (:name css-mode :type elpa)
+   ;; CSS
+   (:name css-mode :type elpa)
 
-;;         rainbow-mode
-;;         tidy
+   ;;         rainbow-mode
+   ;;         tidy
 
-;;         gnuplot-mode
-;;         csv-mode
-;;         csv-nav
-        markdown-mode
-;;         textile-mode
-;;         haskell-mode
-;;         lua-mode
-     ))
+   ;;         gnuplot-mode
+   ;;         csv-mode
+   ;;         csv-nav
+   markdown-mode
+   ;;         textile-mode
+   ;;         haskell-mode
+   ;;         lua-mode
+   ))
 
 
 

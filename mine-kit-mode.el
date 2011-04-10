@@ -1,3 +1,4 @@
+(global-smart-tab-mode 1)               ; use smart-tab for completion
 
 ;;(require 'mine-mode-ido)
 
