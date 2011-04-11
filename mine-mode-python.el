@@ -1,4 +1,4 @@
-(require 'python)
+;(require 'python)
 ;;(require 'auto-complete)
 ;;(require 'yasnippet)
 
@@ -77,11 +77,14 @@
           (lambda ()
                  (auto-complete-mode 1)
                  (set (make-local-variable 'ac-sources)
-                      (append ac-sources '(ac-source-rope) '(ac-source-yasnippet)))
+                      (append '(ac-source-yasnippet) ac-sources '(ac-source-rope) ))
                  (set (make-local-variable 'ac-find-function) 'ac-python-find)
                  (set (make-local-variable 'ac-candidate-function) 'ac-python-candidate)
 ;;                 (set (make-local-variable 'ac-auto-start) nil)
                  ))
+
+(require 'ipython)
+(setq python-python-command "ipython")
 
 ;;Ryan's python specific tab completion
 ;; (defun ryan-python-tab ()

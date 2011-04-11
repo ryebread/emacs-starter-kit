@@ -2,6 +2,9 @@
 ;;
 ;; Part of the Emacs Starter Kit
 
+(setq user-full-name "ryebread"
+      user-mail-address "hhdslb@NOSPAM.gmail.com")
+
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
@@ -17,6 +20,9 @@
 
 ;;; set fontset to auto use my fav-font
 (require 'mine-misc-fontset)
+
+;;; not user dialog box
+(setq use-dialog-box nil)
 
 ;;; use the twilight theme
 (color-theme-twilight)
@@ -66,6 +72,13 @@
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
+
+;; enable time-stamp future
+(add-hook 'write-file-hooks 'time-stamp)
+
+(eval-after-load "time-stamp"
+  '(progn
+     (setq time-stamp-format "%04y-%02m-%02d %02H:%02M:%02S %:a by %U")))
 
 ;; ido-mode is like magic pixie dust!
 (when (> emacs-major-version 21)

@@ -8,6 +8,8 @@
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
+(global-set-key (kbd "C-2") 'set-mark-command)
+
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "M-/") 'hippie-expand)
 
@@ -44,6 +46,10 @@
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
+;;; buffer relative operation
+(global-set-key (kbd "C-x k") 'kill-this-buffer)  ; 立即关闭当前buffer
+(global-set-key (kbd "C-x C-k") 'my-clean-buffers) ;删除临时buffers
+
 ;; Start eshell or switch to it if it's active.
 (global-set-key (kbd "C-x m") 'eshell)
 
@@ -57,10 +63,10 @@
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
 ;; Fetch the contents at a URL, display it raw.
-(global-set-key (kbd "C-x C-h") 'view-url)
+(global-set-key (kbd "C-x C-h") 'view-url) ;chang it confilict
 
 ;; Help should search more than just commands
-(global-set-key (kbd "C-h a") 'apropos)
+;;(global-set-key (kbd "C-h a") 'apropos)  ;default?
 
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key (kbd "C-c e") 'eval-and-replace)

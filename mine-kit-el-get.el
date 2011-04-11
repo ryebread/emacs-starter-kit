@@ -19,9 +19,9 @@
  '(el-get
    (:name package24
           :after (lambda ()
-                   (dolist (source '(("technomancy" . "http://repo.technomancy.us/emacs/")
-                                     ("elpa" . "http://tromey.com/elpa/")))
-                     (add-to-list 'package-archives source t))))
+             (dolist (source '(("technomancy" . "http://repo.technomancy.us/emacs/")
+                               ("elpa" . "http://tromey.com/elpa/")))
+               (add-to-list 'package-archives source t))))
 
 
    ;; Basics
@@ -36,7 +36,11 @@
    ;;         scratch
    ;;         diminish
    ;;         autopair
-   ;;         (:name undo-tree :type git :url "http://www.dr-qubit.org/git/undo-tree.git")
+   (:name undo-tree
+          :type git :url "http://www.dr-qubit.org/git/undo-tree.git"
+          :after (lambda ()
+                   (load-library "undo-tree/undo-tree")
+                   (global-undo-tree-mode t)))
    ;;         hl-sexp
    ;;         highlight-symbol
    ;;         highlight-parentheses
@@ -62,14 +66,6 @@
    ;; Completion
 
    auto-complete
-
-
-   ;; (:name yasnippet
-   ;;        :type svn
-   ;;        :url "http://yasnippet.googlecode.com/svn/trunk/"
-   ;;        :features "yasnippet"
-   ;;        :autoloads nil)
-
    yasnippet
    smart-tab
    ;;         ac-dabbrev
@@ -104,7 +100,7 @@
 
    ;; Ruby & Rails
 
-   ruby-mode      ; built-in package?
+   ruby-mode
    (:name inf-ruby :type elpa)
    ;;         ruby-compilation
    ;;         rinari
@@ -186,7 +182,7 @@
    markdown-mode
    ;;         textile-mode
    ;;         haskell-mode
-   ;;         lua-mode
+   lua-mode
    ))
 
 

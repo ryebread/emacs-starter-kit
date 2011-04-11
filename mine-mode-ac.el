@@ -1,12 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
 ;; Time-stamp: <2010-10-11 20:24:49 Monday by ryebread>
-(require 'auto-complete-config)
-
-(add-to-list 'ac-dictionary-directories
-             (concat dotfiles-dir "mine/vendor/auto-complete/dict"))
-
-(ac-config-default)
 
 ;; 不让回车的时候执行`ac-complete',用M-j来执行`ac-complete'
                                         ;(eal-define-keys
@@ -27,9 +21,9 @@
 
 (set-default 'ac-sources
              '(ac-source-semantic-raw
-               ac-source-yasnippet
-               ac-source-dictionary
+               ac-source-yasnippet      ;not repeat then yasnippet prio
                ac-source-abbrev
+               ac-source-dictionary
                ac-source-words-in-buffer
                ac-source-words-in-same-mode-buffers
                ac-source-imenu
