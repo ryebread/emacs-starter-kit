@@ -3,7 +3,7 @@
 ;;(require 'mine-mode-ido)
 
 ;;(require 'mine-mode-yas)
-(require 'mine-mode-ac)
+;;(require 'mine-mode-ac)
 
 ;; setting for org mode
 ;;(require 'mine-mode-org)

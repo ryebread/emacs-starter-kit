@@ -2,9 +2,11 @@
 ;;(require 'auto-complete)
 ;;(require 'yasnippet)
 
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(setq python-python-command "ipython")   ;use ipython shell
+
+;(autoload 'python-mode "python-mode" "Python Mode." t)
+;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; Initialize Pymacs
 (autoload 'pymacs-apply "pymacs")
@@ -20,8 +22,8 @@
 ;Don't map TAB to yasnippet
 ;In fact, set it to something we'll never use because
 ;we'll only ever trigger it indirectly.
-;;(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
-;;(yas/initialize)
+;(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
+;(yas/initialize)
 ;;(yas/load-directory "~/.emacs.d/snippets")
 
 
@@ -77,14 +79,14 @@
           (lambda ()
                  (auto-complete-mode 1)
                  (set (make-local-variable 'ac-sources)
-                      (append '(ac-source-yasnippet) ac-sources '(ac-source-rope) ))
+                      (append '(ac-source-yasnippet) ac-sources '(ac-source-ropemacs)))
                  (set (make-local-variable 'ac-find-function) 'ac-python-find)
                  (set (make-local-variable 'ac-candidate-function) 'ac-python-candidate)
 ;;                 (set (make-local-variable 'ac-auto-start) nil)
                  ))
 
-(require 'ipython)
-(setq python-python-command "ipython")
+;(require 'ipython)
+;(setq python-python-command "ipython")
 
 ;;Ryan's python specific tab completion
 ;; (defun ryan-python-tab ()
